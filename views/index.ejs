@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Library</title>
+    <link rel="stylesheet" href="/style.css" />
+  </head>
+  <body>
+    <h1>All BOOKS</h1>
+    <hr />
+    <% for(book of books) {%>
+    <div class="book">
+      <h2 class="title">Title: <%= book.title %></h2>
+      <h3 class="content">Author: <%= book.author %></h3>
+      <h3 class="content">Genre: <%= book.genre %></h3>
+      <h3 class="content">Publication Year: <%= book.publicationYear %></h3>
+      <h3 class="content">ISBN: <%= book.ISBN %></h3>
+      <br />
+      <a href="http://localhost:8080/books/<%= book.id %>">See in Detail</a>
+      <a href="http://localhost:8080/books/<%= book.id %>/edit">Edit</a>
+      <form action="/books/<%= book.id %>?_method=DELETE" method="POST">
+        <button type="submit">Delete</button>
+      </form>
+    </div>
+    <hr />
+    <%}%>
+    <br /><br />
+    <a href="http://localhost:8080/books/new">Create New Post</a>
+  </body>
+</html>
